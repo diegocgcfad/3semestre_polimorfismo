@@ -1,63 +1,30 @@
-print("Classes diferentes com o mesmo nome do método.\n")
+class Animal:
+    def __init__(self, nome, especie):
+        self.nome = nome
+        self.especie = especie
 
-class Car:
-    def __init__(self, brand, model):
-        self.brand = brand
-        self.model = model
+    def dieta(self):
+        print("Carnívoro")
+        
+class Leao(Animal):
+    pass # Palavra pass para não alterar nenhuma propriedade
 
-    def move(self):
-        print("Drive!")
-
-class Boat:
-    def __init__(self, brand, model):
-        self.brand = brand
-        self.model = model
-
-    def move(self):
-        print("Sail!")
-
-class Plane:
-    def __init__(self, brand, model):
-        self.brand = brand
-        self.model = model
-
-    def move(self):
-        print("Fly!")
-
-car1 = Car("Ford", "Mustang") #Cria um objeto carro
-boat1 = Boat("Ibiza", "Touring 20") #Cria um objeto barco
-plane1 = Plane("Boeing", "747") #Cria um objeto avião
-
-for x in (car1, boat1, plane1):
-    print(x.brand, x.model)
-    x.move()
-
-
-print("\nPolimorfismo em herança. Criada classe Vehicle e as classes Car, Boat, Plane serão classes filhas de Vehicle\n")
-
-class Vehicle:
-    def __init__(self, brand, model):
-        self.brand = brand
-        self.model = model
-
-    def move(self):
-        print("Move!")
-
-class Car(Vehicle):
+class Aguia(Animal):
     pass
 
-class Boat(Vehicle):
-    def move(self):
-        print("Sail!")
+class Cavalo(Animal):
+    def dieta(self): # Alterando a função
+        print("Herbívoro")
 
-class Plane(Vehicle):
-    def move(self):
-        print("Fly!")
+class Tartaruga(Animal):
+    def dieta(self):
+        print("Onívoro")
 
-car1 = Car("Ford", "Mustang") #Cria um objeto carro
-boat1 = Boat("Ibiza", "Touring 20") #Cria um objeto barco
-plane1 = Plane("Boeing", "747") #Cria um objeto avião
+leao1 = Leao("Simba", "Leão Africano") #Cria um objeto Leão
+aguia1 = Aguia("Swoop","Águia-careca") #Cria um objeto Aguia
+cavalo1 = Cavalo("Wildfire", "Appaloosa") #Cria um objeto Cavalo
+tartaruga1 = Tartaruga("Crush", "Tartaruga-verde") #Cria um objeto Tartaruga
 
-for x in (car1, boat1, plane1):
-    print(x.brand, x.model)
-    x.move()
+for x in (leao1, aguia1, cavalo1, tartaruga1):
+    print("\n",x.nome, "-",x.especie)
+    x.dieta()
